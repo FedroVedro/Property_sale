@@ -1,0 +1,39 @@
+{
+    "users": [
+        {
+            "username": "User 1",
+            "email": "2z7oB@example.com",
+            "password": "password123"
+
+
+        },
+        {
+            "username": "User 2",
+            "email": "2z8oB@example.com",
+            "password": "password123"
+        }
+    ],
+    "sellers": [
+        {
+            "user_id": 1,
+            "rating": 4.5
+        }
+    ],
+    "buyers": [
+        {
+            "user_id": 2,
+            "credit_score": 3.2
+        }
+    ],
+    "propertyes":[
+        {
+            "name": "Property 1",
+            "price": 1000000,
+            "location": "New York",
+            "seller_id": 1,
+            "description": "A beautiful property",
+            "image_url": ""
+
+        }
+    ]
+}
