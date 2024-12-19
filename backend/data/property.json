@@ -1,0 +1,22 @@
+[
+    {
+
+        "name": "House by the Lake",
+        "price": 350000,
+        "location": "Lakeview Road, 42",
+        "seller": 2,
+        "description": "A lovely cottage with a nice view.",
+        "image_url": "images/properties/1.jpg"
+      }
+    ,
+    {
+      
+        "name": "Downtown Apartment",
+        "price": 500000,
+        "location": "Central Ave, 100",
+        "seller": 2,
+        "description": "Apartment in the heart of the city.",
+        "image_url": "images/properties/2.jpg"
+      }
+  ]
+  
