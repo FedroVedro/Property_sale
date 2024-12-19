@@ -36,34 +36,52 @@ class RoleSerializer(serializers.ModelSerializer):
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
-    role = RoleSerializer()
-    
+    role = RoleSerializer(read_only=True)  # Используется для чтения данных
+    role_id = serializers.PrimaryKeyRelatedField(
+        queryset=Role.objects.all(), write_only=True, source='role'
+    )  # Используется для записи (принимает ID роли)
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'role')
+        fields = ('id', 'username', 'email', 'password', 'role', 'role_id')
         extra_kwargs = {
             'password': {'write_only': True}
         }
 
     def create(self, validated_data):
-        role_data = validated_data.pop('role')
-        
-        user = User(
-            role=Role.objects.get(id=role_data),
-            **validated_data
-        )
-        user.set_password(validated_data['password'])
-        user.save()
-        return user    
+        # Валидация автоматически преобразует `role_id` в объект Role
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        # Обновление данных пользователя
+        if 'password' in validated_data:
+            instance.set_password(validated_data.pop('password'))
+        return super().update(instance, validated_data)
+
+
     
     
     
 class PropertySerializer(serializers.ModelSerializer):
-    image_url = Base64ImageField()
-    seller = CustomUserSerializer()
+    seller = CustomUserSerializer(read_only=True)  # Для чтения данных
+    seller_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), write_only=True, source='seller'
+    )  # Для записи данных
+
+    image_url = Base64ImageField()  # Для обработки изображений
+
     class Meta:
         model = Property
-        fields = ['id', 'name', 'price', 'location', 'seller', 'description', 'image_url']
+        fields = ['id', 'name', 'price', 'location', 'seller', 'seller_id', 'description', 'image_url']
+
+    def create(self, validated_data):
+        # Создание объекта недвижимости
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        # Обновление объекта недвижимости
+        return super().update(instance, validated_data)
+
 
 class BankSerializer(serializers.ModelSerializer):
     class Meta:
@@ -71,13 +89,38 @@ class BankSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class RequestSerializer(serializers.ModelSerializer):
-    buyer = CustomUserSerializer()
-    seller = CustomUserSerializer()
-    property = PropertySerializer()
-    bank = BankSerializer()
+    buyer = CustomUserSerializer(read_only=True)  # Для чтения данных
+    buyer_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), write_only=True, source='buyer'
+    )  # Для записи данных
+
+    seller = CustomUserSerializer(read_only=True)
+    seller_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), write_only=True, source='seller'
+    )
+
+    property = PropertySerializer(read_only=True)
+    property_id = serializers.PrimaryKeyRelatedField(
+        queryset=Property.objects.all(), write_only=True, source='property'
+    )
+
+    bank = BankSerializer(read_only=True)
+    bank_id = serializers.PrimaryKeyRelatedField(
+        queryset=Bank.objects.all(), write_only=True, source='bank'
+    )
+
     class Meta:
         model = Request
         fields = [
-            'id', 'buyer', 'seller', 'property',
-            'bank', 'status', 'date_submitted'
+            'id', 'buyer', 'buyer_id', 'seller', 'seller_id',
+            'property', 'property_id', 'bank', 'bank_id',
+            'status', 'date_submitted'
         ]
+
+    def create(self, validated_data):
+        # Автоматически связывает поля через PrimaryKeyRelatedField
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        # Обновление данных запроса
+        return super().update(instance, validated_data)
