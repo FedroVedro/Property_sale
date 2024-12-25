@@ -47,7 +47,7 @@ const ProfilePage = (): JSX.Element => {
 
   useEffect(() => {
     if (userProfile) {
-      setUserRole(userProfile.role.name);
+      setUserRole(userProfile.role?.name);
     }
   }, [userProfile]);
 
