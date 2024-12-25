@@ -1,0 +1,20 @@
+[
+  {
+    "username": "username1",
+    "email": "username1@mail.ru",
+    "password": "FlvbyFlvby!1",
+    "role": 1
+  },
+  {
+    "username": "username2",
+    "email": "username2@mail.ru",
+    "password": "FlvbyFlvby!1",
+    "role": 2
+  },
+  {
+    "username": "username3",
+    "email": "username3@mail.ru",
+    "password": "FlvbyFlvby!1",
+    "role": 3
+  }
+]

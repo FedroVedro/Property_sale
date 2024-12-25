@@ -1,0 +1,23 @@
+[
+    {
+      
+        "buyer": 3,
+        "seller": 2,
+        "property": 1,
+        "bank": 1,
+        "status": "Submitted",
+        "date_submitted": "2024-12-17T10:00:00Z"
+      }
+    ,
+    {
+        "buyer": 3,
+        "seller": 2,
+        "property": 2,
+        "bank": 2,
+        "status": "Approved",
+        "date_submitted": "2024-12-18T11:30:00Z"
+      }
+    
+  ]
+  
+

@@ -1,0 +1,82 @@
+[
+  {
+      "name": "Дом на озере",
+      "price": 350000,
+      "location": "Городская улица, 100",
+      "seller": 2,
+      "description": "Дом на озере. Отличное состояние",
+      "image_url": "images/properties/1.jpg"
+  },
+  {
+      "name": "Квартира в центре",
+      "price": 450000,
+      "location": "Центральная площадь, 15",
+      "seller": 2,
+      "description": "Квартира с современным ремонтом",
+      "image_url": "images/properties/2.jpg"
+  },
+  {
+      "name": "Таунхаус в пригороде",
+      "price": 500000,
+      "location": "Пригородный переулок, 5",
+      "seller": 1,
+      "description": "Уютный таунхаус с гаражом",
+      "image_url": "images/properties/3.jpg"
+  },
+  {
+      "name": "Коттедж у реки",
+      "price": 750000,
+      "location": "Набережная улица, 12",
+      "seller": 2,
+      "description": "Просторный коттедж в живописном месте",
+      "image_url": "images/properties/4.jpg"
+  },
+  {
+      "name": "Дача в деревне",
+      "price": 200000,
+      "location": "Солнечная улица, 30",
+      "seller": 1,
+      "description": "Дача с плодовым садом",
+      "image_url": "images/properties/5.jpg"
+  },
+  {
+      "name": "Квартира в новостройке",
+      "price": 600000,
+      "location": "Просторный бульвар, 22",
+      "seller": 2,
+      "description": "Квартира в современном жилом комплексе",
+      "image_url": "images/properties/6.jpg"
+  },
+  {
+      "name": "Дом с бассейном",
+      "price": 10200000,
+      "location": "Элитная улица, 10",
+      "seller": 2,
+      "description": "Роскошный дом с бассейном и садом",
+      "image_url": "images/properties/7.jpg"
+  },
+  {
+      "name": "Старый особняк",
+      "price": 800000,
+      "location": "Староместная улица, 9",
+      "seller": 1,
+      "description": "Исторический особняк с уникальной архитектурой",
+      "image_url": "images/properties/8.jpg"
+  },
+  {
+      "name": "Загородный дом",
+      "price": 550000,
+      "location": "Лесная улица, 1",
+      "seller": 1,
+      "description": "Уединённый дом рядом с лесом",
+      "image_url": "images/properties/9.jpg"
+  },
+  {
+      "name": "Вилла на побережье",
+      "price": 2500000,
+      "location": "Пляжная улица, 7",
+      "seller": 2,
+      "description": "Эксклюзивная вилла с видом на море",
+      "image_url": "images/properties/10.jpg"
+  }
+]

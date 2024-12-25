@@ -1,0 +1,9 @@
+.card__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  column-gap: 12px;
+  align-items: center;
+  text-align: center;
+}
